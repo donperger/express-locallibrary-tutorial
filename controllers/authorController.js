@@ -179,7 +179,7 @@ exports.author_delete_post = (req, res, next) => {
 
 // Display Author update form on GET.
 exports.author_update_get = (req, res) => {
-  Author.findById(req.params.id, (err, results) => {
+  Author.findById(req.params.id, (err, result) => {
     if (err) {
       const err = new Error("Author not found");
       err.status = 404;
@@ -188,7 +188,7 @@ exports.author_update_get = (req, res) => {
 
     res.render("author_form", {
       title: "Update Author",
-      author: results,
+      author: result,
     });
   })
 };
